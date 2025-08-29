@@ -1,0 +1,53 @@
+/* html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: transparent   ;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 60px; 
+}
+
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+} */
+
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: transparent;
+
+  /* Hide scrollbar in Firefox */
+  scrollbar-width: none; 
+
+  /* Hide scrollbar in Edge and IE */
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar in WebKit browsers (Chrome, Safari, etc.) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
