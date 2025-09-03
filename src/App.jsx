@@ -15,7 +15,7 @@ import MessageList from './assets/Backend/Contact/MessageList';
 import UploadProfile from './assets/Backend/AdminProfile/UploadProfile';
 import GetProfile from './assets/Backend/AdminProfile/GetProfile';
 import UploadImages from './assets/Backend/Gallery/UploadImages';
-import GetAllimages from './assets/Backend/Gallery/Gallery';
+import Gallery from './assets/Backend/Gallery/Gallery';
 import QuizApp from './assets/Backend/Quize/QuizApp';
 import QuizResults from './assets/Backend/Quize/QuizResults';
 import RegisterPage from './assets/Backend/Student/RegisterAndLogin';
@@ -57,7 +57,7 @@ function App() {
           <Route path="/UploadProfile" element={<UploadProfile />} />
           <Route path="/GetProfile" element={<GetProfile />} />
           <Route path="/UploadImages" element={<UploadImages />} />
-          <Route path="/GetAllimages" element={<GetAllimages />} />
+          <Route path="/GetAllimages" element={<Gallery />} />
           <Route path="/QuizApp" element={<QuizApp />} />
           <Route path="/QuizResults" element={<QuizResults />} />
           <Route path="/register" element={<RegisterPage />} />
