@@ -8,7 +8,7 @@ import SkillsSection from './Skills';
 import ClientFeedback from './ClientFeedback';
 
 import './Home.css';
-import GetAllImages from '../Backend/Gallery/GetAllImages';
+import GetAllImages from '../Backend/Gallery/Gallery';
 
 function Home({ darkMode }) {
   const isDesktop = window.innerWidth >= 768;

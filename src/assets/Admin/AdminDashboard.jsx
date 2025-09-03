@@ -9,7 +9,7 @@ import VisitorCounter from "./VisitorCounter";
 import GetProfile from "../Backend/AdminProfile/GetProfile";
 import UploadProfile from "../Backend/AdminProfile/UploadProfile";
 import LogoutButton from "../Backend/CreateAdmin/LogoutButton";
-import GetAllImages from "../Backend/Gallery/GetAllImages";
+import GetAllImages from "../Backend/Gallery/Gallery";
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState("home");
