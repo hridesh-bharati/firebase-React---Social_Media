@@ -1,90 +1,83 @@
-/* Feed Container */
+/* Instagram style feed */
 .gallery-feed {
-  max-width: 600px; /* Insta post width */
-  margin: 20px auto;
-  padding: 0 10px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Instagram Card */
+/* Card look */
 .insta-card {
-  border: 1px solid #dbdbdb;
-  border-radius: 8px;
-  overflow: hidden;
+  border: none;
+  border-radius: 12px;
   background: #fff;
-  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* Post Header */
+/* Header */
 .insta-card .card-header {
-  padding: 10px 15px;
-  border-bottom: 1px solid #eee;
+  background: #fff;
+  border: none;
+  padding: 8px 12px;
 }
 
-.insta-card .card-header strong {
-  font-size: 0.95rem;
-}
-
-/* ✅ Post Image (maintain full ratio, no cut) */
+/* Image */
 .insta-img-wrapper {
   width: 100%;
-  background: #000; /* black bg like Instagram */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: #000;
 }
-
-.insta-img-wrapper img {
+.insta-img {
   width: 100%;
-  height: auto;   /* ✅ keeps full height with ratio */
-  max-height: 700px; /* optional: limit very tall images */
-  object-fit: contain; /* ✅ no cut, full image shown */
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-/* Action Buttons */
-.insta-card .card-body {
-  padding: 10px 15px;
-}
-
-.insta-card .btn-link {
+/* Action buttons */
+.card-body .btn-link {
   font-size: 1.4rem;
-  color: #262626;
   text-decoration: none;
-  border: none;
-  background: none;
 }
 
-.insta-card .btn-link.text-danger {
-  color: #ed4956;
+/* Like count */
+.like-count {
+  font-weight: 600;
+  margin-top: -4px;
+  margin-bottom: 4px;
 }
 
-.insta-card .btn-link:hover {
-  opacity: 0.7;
-}
-
-/* Caption & Comments */
-.insta-card p {
+/* Caption */
+.card-body p {
   font-size: 0.9rem;
-  margin-bottom: 5px;
+  margin: 0;
+}
+.card-body p strong {
+  margin-right: 4px;
 }
 
+/* Comments */
 .comments {
-  max-height: 120px;
-  overflow-y: auto;
-  margin-top: 5px;
+  margin-top: 6px;
 }
-
 .comments p {
   font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+.comments button {
+  font-size: 0.7rem;
 }
 
-/* Add Comment Box */
-.insta-card input.form-control-sm {
+/* Comment input */
+.card-body input {
   border-radius: 20px;
   font-size: 0.85rem;
-  padding: 5px 12px;
+}
+.card-body button {
+  border-radius: 20px;
+  padding: 2px 12px;
+  font-size: 0.8rem;
 }
 
-.insta-card .btn-sm {
-  border-radius: 20px;
-  font-size: 0.8rem;
+/* Offcanvas bottom sheet */
+.offcanvas-bottom {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }

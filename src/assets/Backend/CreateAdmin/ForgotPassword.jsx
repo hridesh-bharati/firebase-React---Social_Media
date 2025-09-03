@@ -1,53 +1,58 @@
-
-
 import React, { useState } from "react";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../../../firebaseConfig";
+import { toast } from "react-toastify";
 
 export default function ForgotPassword({ onBack }) {
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(null);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleReset = async (e) => {
     e.preventDefault();
-    setMessage(null);
-    setError(null);
+    setLoading(true);
+
     try {
       await sendPasswordResetEmail(auth, email);
-      console.log("Password reset email sent to:", email);  // <-- add this
-      setMessage("Password reset email sent! Please check your inbox.");
+      toast.success("Password reset email sent! Check your inbox.");
+      setEmail("");
     } catch (err) {
-      console.error("Reset email error:", err);
-      setError(err.message);
+      toast.error("Error: " + err.message);
+    } finally {
+      setLoading(false);
     }
-
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: "auto" }}>
+    <form onSubmit={handleReset} style={{ maxWidth: 400, margin: "auto" }}>
       <h3>Forgot Password</h3>
-      <form onSubmit={handleReset}>
-        <div className="mb-3">
-          <label>Email</label>
-          <input
-            type="email"
-            className="form-control"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="btn btn-primary w-100">
-          Send Reset Email
-        </button>
-      </form>
-      {message && <p style={{ color: "green" }}>{message}</p>}
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <button onClick={onBack} className="btn btn-link mt-3">
+      <p className="text-muted" style={{ fontSize: "0.9rem" }}>
+        Enter your registered email to receive a reset link.
+      </p>
+
+      <div className="mb-3">
+        <label>Email</label>
+        <input
+          type="email"
+          className="form-control"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+
+      <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+        {loading ? "Sending..." : "Send Reset Link"}
+      </button>
+
+      <button
+        type="button"
+        className="btn btn-link mt-3"
+        onClick={onBack}
+        style={{ fontSize: "0.9rem" }}
+      >
         Back to Login
       </button>
-    </div>
+    </form>
   );
 }

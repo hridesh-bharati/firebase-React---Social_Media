@@ -1,21 +1,24 @@
 import React, { useState } from "react";
+
 export default function ShareButton({ url, title = "Check this out!" }) {
   const [open, setOpen] = useState(false);
 
   const shareLinks = [
+    { name: "Instagram", icon: "bi-instagram", url: `https://www.instagram.com/?url=${encodeURIComponent(url)}`, color: "#C13584" },
+    { name: "X", icon: "bi-twitter", url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, color: "#1DA1F2" },
+    { name: "Snapchat", icon: "bi-snapchat", url: `https://www.snapchat.com/scan?attachmentUrl=${encodeURIComponent(url)}`, color: "#d1ce00ff" },
     { name: "WhatsApp", icon: "bi-whatsapp", url: `https://wa.me/?text=${encodeURIComponent(title + " " + url)}`, color: "#25D366" },
     { name: "Facebook", icon: "bi-facebook", url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, color: "#4267B2" },
-    { name: "Instagram", icon: "bi-instagram", url: `https://www.instagram.com/?url=${encodeURIComponent(url)}`, color: "#E1306C" },
-    { name: "Snapchat", icon: "bi-snapchat", url: `https://www.snapchat.com/scan?attachmentUrl=${encodeURIComponent(url)}`, color: "#FFFC00" },
     { name: "LinkedIn", icon: "bi-linkedin", url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, color: "#0077b5" },
     { name: "Telegram", icon: "bi-telegram", url: `https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, color: "#0088cc" },
-    { name: "TikTok", icon: "bi-tiktok", url: `https://www.tiktok.com/share?url=${encodeURIComponent(url)}`, color: "#000000" },
     { name: "Email", icon: "bi-envelope", url: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(url)}`, color: "#EA4335" },
   ];
 
   return (
     <>
-      <button className="share-btn" onClick={() => setOpen(true)}>📤 Share</button>
+      <button className="share-btn fs-4" onClick={() => setOpen(true)}>
+        <i className="bi bi-share-fill"></i>
+      </button>
 
       {open && (
         <>
@@ -34,8 +37,7 @@ export default function ShareButton({ url, title = "Check this out!" }) {
                   style={{ backgroundColor: s.color }}
                   onClick={() => setOpen(false)}
                 >
-                  <i className={`bi ${s.icon} p-0 m-0 lh-0 share-icon`}></i>
-                  <span className="share-name">{s.name}</span>
+                  <i className={`bi ${s.icon} share-icon`}></i>
                 </a>
               ))}
             </div>
@@ -45,13 +47,15 @@ export default function ShareButton({ url, title = "Check this out!" }) {
 
       <style>{`
         .share-btn {
-          background: #333;
-          color: #fff;
+          background: none;
           border: none;
-          padding: 8px 14px;
-          border-radius: 8px;
+          font-size: 42px; 
           cursor: pointer;
-          font-weight: bold;
+          padding: 8px;
+          transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .share-btn:active {
+          transform: scale(0.9);
         }
         .share-backdrop {
           position: fixed;
@@ -64,8 +68,7 @@ export default function ShareButton({ url, title = "Check this out!" }) {
           left: 0;
           bottom: 0;
           width: 100%;
-          max-height: 50vh;
-          height: 50vh;
+          height: 40vh;
           background: #fff;
           border-top-left-radius: 16px;
           border-top-right-radius: 16px;
@@ -73,35 +76,29 @@ export default function ShareButton({ url, title = "Check this out!" }) {
           z-index: 101;
           transform: translateY(100%);
           animation: slideUp 0.3s forwards;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          text-align: center;
         }
         @keyframes slideUp { to { transform: translateY(0); } }
-        .share-title { font-weight: bold; font-size: 16px; margin-bottom: 16px; }
+        .share-title { font-weight: bold; margin-bottom: 16px; }
         .share-grid {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
           gap: 16px;
-          width: 100%;
         }
         .share-item {
-          width: 65px;
-          height: 65px;
+          width: 60px;
+          height: 60px;
           border-radius: 50%;
           display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
           color: #fff;
           text-decoration: none;
-          font-weight: bold;
           transition: transform 0.2s ease;
         }
         .share-item:hover { transform: scale(1.1); }
-        .share-icon { font-size: 24px; margin-bottom: 4px; }
-        .share-name { font-size: 10px; text-align: center; }
+        .share-icon { font-size: 28px; } /* icons slightly bigger */
       `}</style>
     </>
   );

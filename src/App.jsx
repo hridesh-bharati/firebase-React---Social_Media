@@ -59,7 +59,7 @@ function App() {
 
         </Routes>
         <BottomFotter />
-        <Footer/>
+        {/* <Footer/> */}
       </BrowserRouter>
     </>
   );

@@ -69,7 +69,7 @@ export default function BottomFooter() {
     <nav
       style={{
         position: "fixed",
-        bottom: 24,
+        bottom:5,
         left: "50%",
         transform: "translateX(-50%)",
         width: 360,
