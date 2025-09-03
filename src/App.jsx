@@ -15,7 +15,7 @@ import MessageList from './assets/Backend/Contact/MessageList';
 import UploadProfile from './assets/Backend/AdminProfile/UploadProfile';
 import GetProfile from './assets/Backend/AdminProfile/GetProfile';
 import UploadImages from './assets/Backend/Gallary/UploadImages';
-import GetAllimages from './assets/Backend/Gallary/GetAllImages';
+import GetAllimages from './assets/Backend/Gallary/GetAllImages.jsx';
 import QuizApp from './assets/Backend/Quize/QuizApp';
 import QuizResults from './assets/Backend/Quize/QuizResults';
 import RegisterPage from './assets/Backend/Student/RegisterAndLogin';
