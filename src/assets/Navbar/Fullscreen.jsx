@@ -52,8 +52,8 @@ function Fullscreen({ darkMode }) {
       onClick={toggleFullscreen}
       aria-label="Toggle Fullscreen"
       size="sm"
-      className={`rounded-circle p-2 ${darkMode ? 'text-light' : 'text-primary'}`}
-      style={{ border: 'none', fontSize: '22px', cursor: 'pointer' }}
+      className={`rounded-circle p-2 ${darkMode ? 'text-light' : 'text-white'}`}
+      style={{ border: 'none', fontSize: '26px', cursor: 'pointer' }}
     >
       {isFullscreen ? <MdOutlineFullscreen /> : <MdFullscreenExit />}
     </Button>

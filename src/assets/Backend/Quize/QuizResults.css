@@ -1,0 +1,84 @@
+/* src/styles/certificate.css */
+.certificate-wrapper {
+  background-color: #f9f9f9;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certificate-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 700px;
+  border: 10px solid #4caf50; /* Green border for certificate */
+}
+
+.certificate-header {
+  margin-bottom: 20px;
+}
+
+.certificate-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin-top: 10px;
+}
+
+.certificate-body {
+  margin-bottom: 30px;
+  font-family: 'Georgia', serif;
+}
+
+.student-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.generation-id {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.result-box {
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.result {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin-top: 10px;
+}
+
+.certificate-footer {
+  font-size: 1rem;
+  color: gray;
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .certificate-container {
+    padding: 20px;
+  }
+
+  .certificate-title {
+    font-size: 2rem;
+  }
+
+  .result {
+    font-size: 2.5rem;
+  }
+}

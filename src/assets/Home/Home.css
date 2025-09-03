@@ -1,13 +1,8 @@
-/* Container for each marquee row - simple, no glass effect */
+/* Container for each marquee row */
 .marquee-container {
   overflow: hidden;
   white-space: nowrap;
   width: 100%;
-  background: transparent; /* No glass */
-  padding: 8px 0;
-  border-radius: 0; /* optional */
-  box-shadow: none;
-  border: none;
 }
 
 /* The sliding marquee content */
@@ -22,53 +17,15 @@
   animation: scroll-right 40s linear infinite;
 }
 
-
+/* Marquee item */
 .marquee-item {
   display: inline-block;
   margin: 0 15px;
-  padding: 10px 24px;
-  border-radius: 30px;
-
-  background: rgba(255, 255, 255, 0.15);
-  color: #222;
-
   font-size: 1rem;
   font-weight: 600;
-
-  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #222;
   user-select: none;
   cursor: default;
-
-  box-shadow:
-    inset 0 0 8px rgba(255, 255, 255, 0.6),
-    0 4px 12px rgba(255, 255, 255, 0.25);
-
-  position: relative;
-  overflow: hidden;
-
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  backdrop-filter: blur(10px) saturate(180%);
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.4s ease;
-}
-
-.marquee-item::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -25%;
-  width: 150%;
-  height: 200%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.3) 100%
-  );
-  transform: rotate(25deg);
-  filter: blur(20px);
-  animation: light-sweep 3s linear infinite;
-  pointer-events: none;
-  border-radius: 30px;
 }
 
 /* Keyframes for scrolling left */

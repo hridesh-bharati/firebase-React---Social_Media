@@ -19,21 +19,19 @@ const stats = [
   { end: 148, label: 'Deliveries' },
   { end: 239, label: 'Happy Clients' },
   { end: 55, label: 'GitHub Repositories' },
-  { end: 75, label: 'Satisfied Customers' }  // New 6th stat
+  { end: 75, label: 'Satisfied Customers' }  
 ];
 
 
 
 const StatsWithCounter = () => {
-
-
   return (
     <Container className="py-5">
       <Row className="text-center g-4">
         {stats.map((stat, index) => (
           <Col xs={12} md={4} lg={4} key={index}>
             <Card
-              className="glass-card p-4 h-100 d-flex flex-column justify-content-center"
+              className="glass-card p-4 rounded-4 border-0 h-100 d-flex flex-column justify-content-center"
               style={{ background: colors[index % colors.length] }}
             >
               <Card.Body>

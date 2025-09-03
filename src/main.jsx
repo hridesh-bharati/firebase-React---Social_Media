@@ -1,29 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
-import { ThemeProvider } from './ThemeContext.jsx';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'aos/dist/aos.css';  // Import AOS CSS
-import './App.css';
-import './index.css';
-import './Darkmode.css';
+import { ThemeProvider } from './ThemeContext.jsx';  // <-- import this
 
-import AOS from 'aos';
-
-function Root() {
-  React.useEffect(() => {
-    AOS.init();
-  }, []);
-
-  return (
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
-  );
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/firebase-messaging-sw.js')
+    .then(reg => console.log('Service Worker registered with scope:', reg.scope))
+    .catch(err => console.error('SW registration failed:', err));
 }
 
-createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Root />
-  </React.StrictMode>
+const root = createRoot(document.getElementById('root'));
+root.render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>
 );

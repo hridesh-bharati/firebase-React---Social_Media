@@ -1,0 +1,21 @@
+.profile-card {
+  width: 18rem;
+  border-radius: 10px;
+}
+
+.profile-card img {
+  border-radius: 50%;
+}
+
+.projects-section {
+  margin-top: 20px;
+}
+
+.projects-section .swiper-container {
+  max-height: 400px;
+}
+
+.projects-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}

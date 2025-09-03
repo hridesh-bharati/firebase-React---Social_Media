@@ -1,25 +1,46 @@
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function FluentClientFeedback() {
   const feedbacks = [
     {
       feedback:
-        "It is very easy to start smoking but it is an uphill task to quit it. Ask any chain smoker or even a person.",
-      client: "Harriet Maxwell",
-      role: "CEO at Google",
+        "Collaborating with this developer was seamless. Their understanding of full-stack technologies and attention to detail helped us ship a critical feature ahead of schedule.",
+      client: "Alex Johnson",
+      role: "Tech Lead at Meta",
     },
     {
       feedback:
-        "Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.",
-      client: "Harriet Maxwell",
-      role: "CEO at Google",
+        "One of the most resourceful and self-motivated developers I’ve mentored. Their ability to break down complex problems and write clean, efficient code is impressive.",
+      client: "Sophia Lee",
+      role: "Senior Software Engineer at Amazon",
+    },
+    {
+      feedback:
+        "Their contribution to our open-source project brought immediate performance improvements. Great communication and consistent code quality.",
+      client: "Daniel Kim",
+      role: "Maintainer at OpenAI OSS",
     },
   ];
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+  };
+
   return (
     <section className="fluent-feedback-section" aria-labelledby="feedback-title">
-      <h2 id="feedback-title">Client’s Feedback About Me</h2>
-      <div className="feedback-grid">
+      <h2 id="feedback-title">Client & Mentor Feedback</h2>
+
+      <Slider {...sliderSettings} className="feedback-slider">
         {feedbacks.map(({ feedback, client, role }, idx) => (
           <blockquote className="feedback-card" key={idx}>
             <p className="feedback-text" aria-label="Client feedback">
@@ -31,11 +52,11 @@ export default function FluentClientFeedback() {
             </footer>
           </blockquote>
         ))}
-      </div>
+      </Slider>
 
       <style>{`
         .fluent-feedback-section {
-          max-width: 960px;
+          max-width: 720px;
           margin: 4rem auto;
           padding: 0 1rem;
           font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -43,18 +64,17 @@ export default function FluentClientFeedback() {
           text-align: center;
           user-select: none;
         }
+
         .fluent-feedback-section h2 {
           font-weight: 700;
-          font-size: 2.75rem;
-          margin-bottom: 2.5rem;
-          color: #0c4a6e; /* deep blue */
-          text-shadow: 0 2px 6px rgba(12,74,110,0.3);
+          font-size: 2.5rem;
+          margin-bottom: 2rem;
+          color: #0c4a6e;
+          text-shadow: 0 2px 6px rgba(12, 74, 110, 0.3);
         }
 
-        .feedback-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 2.5rem;
+        .feedback-slider {
+          padding: 0 1rem;
         }
 
         .feedback-card {
@@ -65,21 +85,13 @@ export default function FluentClientFeedback() {
             0 8px 32px rgba(0, 0, 0, 0.08),
             0 0 0 1px rgba(255, 255, 255, 0.12);
           padding: 2.5rem 2rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          transition: box-shadow 0.3s ease, transform 0.35s ease;
-          cursor: default;
-          user-select: text;
+          margin: 0 auto;
+          max-width: 600px;
+          transition: transform 0.3s ease;
         }
 
-        .feedback-card:hover,
-        .feedback-card:focus-within {
-          box-shadow:
-            0 12px 36px rgba(0, 0, 0, 0.15),
-            0 0 0 1px rgba(255, 255, 255, 0.2);
-          transform: translateY(-8px);
-          outline: none;
+        .feedback-card:hover {
+          transform: translateY(-6px);
         }
 
         .feedback-text {
@@ -87,12 +99,7 @@ export default function FluentClientFeedback() {
           font-size: 1.25rem;
           line-height: 1.7;
           color: #134e8a;
-          margin-bottom: 2.25rem;
-          user-select: text;
-        }
-
-        .feedback-text q {
-          quotes: "“" "”" "‘" "’";
+          margin-bottom: 2rem;
         }
 
         .client-info h5 {
@@ -100,7 +107,6 @@ export default function FluentClientFeedback() {
           font-size: 1.2rem;
           color: #0c4a6e;
           margin-bottom: 0.25rem;
-          user-select: none;
         }
 
         .client-info p {
@@ -108,17 +114,16 @@ export default function FluentClientFeedback() {
           font-size: 1rem;
           color: #3b82f6;
           margin: 0;
-          user-select: none;
         }
 
-        /* Responsive tweaks */
         @media (max-width: 480px) {
           .feedback-text {
             font-size: 1.1rem;
           }
+
           .fluent-feedback-section h2 {
             font-size: 2rem;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
           }
         }
       `}</style>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Typed from 'typed.js';
 import Card from './Card.jsx';
-
+import GetProfile from '../Backend/AdminProfile/GetProfile.jsx'
 export default function Home() {
   const elementRef = useRef(null);
 
@@ -17,7 +17,7 @@ export default function Home() {
       typeSpeed: 55,
       backSpeed: 40,
       loop: true,
-      backDelay: 1500,
+      backDelay: 1000,
     });
 
     return () => typed.destroy();
@@ -56,55 +56,13 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero-section d-flex flex-column justify-content-center align-items-center text-center text-white px-4">
         <h1 className="display-3 fw-bold mb-3">HRIDESH BHARATI</h1>
-        <h2 ref={elementRef} className="typed-text text-warning fw-semibold mb-4"></h2>
+        <h4 ref={elementRef} className="typed-text text-warning fw-semibold  small mb-4"></h4>
         <p className="lead fw-light fs-5">Developer | Educator | Problem Solver</p>
         <Link to="/about" className="btn btn-warning btn-lg mt-4 shadow-sm hover-scale">Learn More</Link>
       </section>
 
       {/* About Section */}
-      <section className="container my-5">
-        <h2 className="text-center text-warning fw-bold mb-5">About Me</h2>
-        <div className="row gy-4 align-items-center">
-
-          {/* Text */}
-          <div className="col-lg-7 order-2 order-lg-1">
-            <div className="card border-0 shadow-sm p-4">
-              <h4 className="text-danger mb-3">Who am I?</h4>
-              <p className="fs-5 text-muted">
-                Hridesh Bharati is a skilled web developer and educator. Currently serving as a programmer and lab in-charge at Drishtee Computer Center, he combines his development expertise with a passion for teaching. From creating robust digital solutions to mentoring aspiring developers, Hridesh believes in empowering others through technology.
-              </p>
-              <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center mt-4 gap-3">
-                <Link to="/about" className="btn btn-warning px-4 shadow-sm hover-scale">More About Me</Link>
-                <div className="contact-info text-secondary fs-6">
-                  <p className="mb-1"><strong>Phone:</strong> <a href="tel:+917267995307" className="text-decoration-none text-primary">+91 7267995307</a></p>
-                  <p><strong>Email:</strong> <a href="mailto:hrideshbharati027@gmail.com" className="text-decoration-none text-primary">hrideshbharati027@gmail.com</a></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Card & Social */}
-          <div className="col-lg-5 order-1 order-lg-2 d-flex flex-column align-items-center">
-            <Card />
-            <div className="social-icons mt-4 d-flex justify-content-center flex-wrap gap-3">
-              {socialLinksData.map(({ icon, url, color, label }, idx) => (
-                <Link
-                  to={url}
-                  key={idx}
-                  className="social-icon"
-                  aria-label={label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ borderColor: color, color }}
-                >
-                  <i className={`bi ${icon}`} />
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <GetProfile />
       {/* Education Timeline */}
       <section className="bg-white py-5">
         <div className="container">

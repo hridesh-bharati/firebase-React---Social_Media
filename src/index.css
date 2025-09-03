@@ -20,7 +20,9 @@ body {
 } */
 
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -28,7 +30,7 @@ html, body, #root {
   background: transparent;
 
   /* Hide scrollbar in Firefox */
-  scrollbar-width: none; 
+  scrollbar-width: none;
 
   /* Hide scrollbar in Edge and IE */
   -ms-overflow-style: none;
@@ -49,5 +51,10 @@ body {
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 100vh;
+  /* Full viewport height */
+}
+
+.myshadow {
+  box-shadow: 1px 1px 8px #dddddd;
 }

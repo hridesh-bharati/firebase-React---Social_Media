@@ -1,0 +1,129 @@
+/* WhatsApp-style layout */
+.whatsapp-container {
+  display: flex;
+  height: 90vh;
+  background-color: #e5ddd5;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* Sidebar */
+.whatsapp-sidebar {
+  width: 30%;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f0f0f0;
+}
+
+.chat-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.chat-item {
+  padding: 15px;
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-item:hover {
+  background-color: #f5f5f5;
+}
+
+.chat-item.active {
+  background-color: #d0f0c0;
+}
+
+.chat-name {
+  font-weight: bold;
+}
+
+.chat-subject {
+  font-size: 14px;
+  color: #555;
+}
+
+.chat-time {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Chat area */
+.whatsapp-chatbox {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #efeae2;
+  position: relative;
+}
+
+.chat-placeholder {
+  margin: auto;
+  color: #777;
+  font-size: 18px;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-bubble {
+  max-width: 75%;
+  padding: 10px 45px 10px 15px; /* increased right padding for delete btn */
+  border-radius: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  font-size: 15px;
+  background-color: #fff;
+  align-self: flex-start;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  word-wrap: break-word;
+  white-space: pre-wrap; /* preserve line breaks */
+  overflow-wrap: break-word;
+}
+
+.chat-bubble.incoming {
+  background-color: #ffffff;
+}
+
+.chat-bubble small {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 14px;
+  color: #dc3545 !important;
+  background: none;
+  border: none;
+  padding: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  z-index: 10; /* keep above message content */
+}
+
+.delete-btn:hover {
+  opacity: 1;
+}
+.btn-group .btn {
+  min-width: 70px;
+  font-size: 14px;
+}
