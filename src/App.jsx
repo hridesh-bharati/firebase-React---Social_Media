@@ -22,10 +22,6 @@ import RegisterPage from './assets/Backend/Student/RegisterAndLogin';
 import Footer from './assets/Home/Footer';
 
 
-function About() {
-  return <h2>About Page</h2>;
-}
-
 function App() {
   return (
     <>
@@ -47,7 +43,6 @@ function App() {
         <Navbars />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/whatido" element={<Whatido />} />
           <Route path="/DelWhatido" element={<DelWhatido />} />
           <Route path="/AdminDashboard" element={<AdminDashboard />} />
